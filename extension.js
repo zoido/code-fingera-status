@@ -15,6 +15,8 @@ class FingeraStatusBarItem {
 
         this._statusBarDeltaItem.show();
         this._interval = setInterval(() => this.update(), 30 * 1000);
+        this._delta_error_flag = false;
+        this._arrival_error_flag = false;
         this.update();
     }
 
@@ -38,15 +40,23 @@ class FingeraStatusBarItem {
     }
 
     _deltaError() {
+        var msg = "Fingera Status delta information didn't updated well. :(";
         this._statusBarDeltaItem.text = "$(bug)";
-        this._statusBarDeltaItem.tooltip = null;
-        vscode.window.showErrorMessage("Fingera Status delta information didn't updated well. :(");
+        this._statusBarDeltaItem.tooltip = msg;
+        if (!this._delta_error_flag) {
+            vscode.window.showErrorMessage(msg);
+            this._delta_error_flag = true;
+        }
 
     }
     _arrivalError() {
+        var msg = "Fingera Status arrival information didn't updated well. :(";
         this._statusBarArrivalItem.text = "$(bug)";
-        this._statusBarArrivalItem.tooltip = null;
-        vscode.window.showErrorMessage("Fingera Status arrival information didn't updated well. :(");
+        this._statusBarArrivalItem.tooltip = msg;
+        if (!this._delta_error_flag) {
+            vscode.window.showErrorMessage(msg);
+            this._arrival_error_flag = true;
+        }
 
     }
     _updateDelta(host, user_number) {
@@ -79,6 +89,7 @@ class FingeraStatusBarItem {
                 // }
                 this._statusBarDeltaItem.text = delta_value;
                 this._statusBarDeltaItem.tooltip = summary_value;
+                this._delta_error_flag = false;
             });
         }).on('error', (e) => {
             this._deltaError();
@@ -162,7 +173,9 @@ class FingeraStatusBarItem {
 
                 this._statusBarArrivalItem.text = `${arrival_symbol} ${arrival_text}`;
                 this._statusBarArrivalItem.tooltip = `${arrival_tooltip_text}`;
+                this._arrival_error_flag = false;
             });
+
         }).on('error', (e) => {
             this._arrivalError();
         });

@@ -2,7 +2,7 @@
     "name": "code-fingera-status",
     "displayName": "code-fingera-status",
     "description": "VS Code Fingera Status",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "zoido",
     "engines": {
         "vscode": "^1.0.0"
@@ -22,22 +22,22 @@
                 "fingera.host": {
                     "type": "string",
                     "default": "127.0.0.1",
-                    "description": "Fingera server hostname"
+                    "description": "Fingera server hostname"
                 },
                 "fingera.user_number": {
                     "type": "integer",
                     "default": 0,
-                    "description": "Your Fingera user ID"
+                    "description": "Your Fingera user ID"
                 },
                 "fingera.show_arrival": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Whether to time since the last arrival"
+                    "description": "Whether to time since the last arrival"
                 },
                 "fingera.arrival_timer": {
                     "type": "integer",
                     "default": 60,
-                    "description": "Treshold in minutes, when the next pause is appropriate :)"
+                    "description": "Treshold in minutes, when the next pause is appropriate :)"
                 }
             }
         }
