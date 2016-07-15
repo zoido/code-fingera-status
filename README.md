@@ -1,13 +1,31 @@
-# README
-## This is the README for your extension "code-fingera-status"
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+# `code-fingera-status`
 
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
+A simple [Visual Studio Code](https://code.visualstudio.com/) extension
+showing your [Fingera](http://www.fingera.com/) attendance status.
 
-### For more information
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+![screenshot](static/screenshot.png)
 
-**Enjoy!**
+## Features
+*Not much ;)*
+ * Shows your overall (monthly) balance
+ * Can show the time of your last arrival with the
+   configurable *pomodoro* timer bar
+
+## Config
+
+```json
+// Fingera Status Bar Notification
+
+    // Fingera server hostname
+    "fingera.host": "127.0.0.1",
+
+    // Your Fingera user ID
+    "fingera.user_number": 0,
+
+    // Whether to time since the last arrival
+    "fingera.show_arrival": true,
+
+    // Treshold in minutes, when the next pause is appropriate :)
+    "fingera.arrival_timer": 60,
+
+```
